@@ -1,9 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
 
-$bgcolor: lightblue;
-$textcolor: darkblue;
-$fontsize: 18px;
+@import "../src/app/variables.scss";
 body {
+    font-family: Arial, "Times New Roman", Times, serif;
     background-color: $bgcolor;
     color: $textcolor;
     font-size: $fontsize;
