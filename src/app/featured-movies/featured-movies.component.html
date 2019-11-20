@@ -1,0 +1,10 @@
+<h2>Featured movies</h2>
+
+
+<div *ngFor="let movie of movies">
+    <h3>Title: {{movie.Title}}</h3>
+    <p>Year: {{movie.Year}}</p>
+    <p>Awards: {{movie.Awards}}</p>
+    <img src=.\assets\posters\{{movie.Poster}} width="300px">
+    <p>{{movie.Plot}}</p>
+</div>

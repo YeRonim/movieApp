@@ -1,0 +1,15 @@
+<p>Which movie do you like to search?</p>
+
+<!-- <h4><label for="search-box">Search Movies</label></h4> -->
+
+<input #searchBox (input)="search(searchBox.value)" />
+<button type="submit">Search</button>
+
+<ul>
+    <div>Found movies</div>
+    <li *ngFor="let movie of movies$ | async">
+        <a routerLink="/searched-movies/{{movie.id}}">
+            {{movie.Title}}
+        </a>
+    </li>
+</ul>
