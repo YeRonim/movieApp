@@ -1,16 +1,11 @@
-<div class=container>
-    <h1>{{title}}</h1>
+<h1>
+    {{title}}</h1>
 
-    <nav class="navbar navbar-default">
-        <a class="navbar-brand" routerLink="/search">search movie</a>
-        <a class="navbar-brand" routerLink="/featured-movie">featured movies</a>
-    </nav>
+<nav class="navbar navbar-default">
+    <a class="navbar-brand" routerLink="/search">search movie</a>
+    <a class="navbar-brand" routerLink="/featured-movie">featured movies</a>
+</nav>
 
-    <div>
-        <div>
-            <div class="navbar-header">
-                <router-outlet></router-outlet>
-            </div>
-        </div>
-    </div>
+<div class="container">
+    <router-outlet></router-outlet>
 </div>

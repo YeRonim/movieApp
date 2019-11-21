@@ -14,14 +14,9 @@ import {debounceTime, distinctUntilChanged, switchMap} from 'rxjs/operators';
 export class SearchComponent implements OnInit {
   movies$: Observable<IMovie[]>;
   private searchTerms =  new Subject<string>();
+  private maxResults_search:number = 1;
 
   constructor(private movieService:MovieService) { }
-
-  //Push a search term into the observable stream.
-  search(term: string): void{
-    console.log("in search.component - search(term)", term);
-    this.searchTerms.next(term);
-  }
 
   ngOnInit() {
     this.movies$ = this.searchTerms.pipe(
@@ -35,6 +30,16 @@ export class SearchComponent implements OnInit {
       switchMap((term: string) => this.movieService.searchMovie(term)),
     );    
   }
+
+  //Push a search term into the observable stream.
+  search(term: string): void{
+    console.log("in search.component - search(term)", term);
+    this.searchTerms.next(term);
+  }
+
+  
+
+  
 
   
   
