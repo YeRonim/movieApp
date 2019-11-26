@@ -6,7 +6,6 @@ import { catchError, map, tap } from 'rxjs/operators';
 
 
 
-
 @Injectable()
 export class MovieService {
    private _url:string  = "api/movies";   
@@ -34,8 +33,7 @@ export class MovieService {
         );
       }
 
-    searchMovie(term:string): Observable<IMovie[]>{
-        
+    searchMovie(term:string): Observable<IMovie[]>{        
         console.log("movie-service.ts  term: ",term);       
         console.log("test:", this.http.get<IMovie[]>(`${this._url}/?Title=${term}`).subscribe(response => console.log("response: ",response)));
         //console.log(this.http.get<IMovie[]>(`${this._url}?Title=${term}`).subscribe(response => console.log("response: ",response)));

@@ -1,9 +1,22 @@
-// .image-wrapper {
-//     position: relative;
-//     height: 0;
-//     //padding-top: calc(360 / 360 * 100%);
-// }
-img {
-    width: 200px;
-    height: auto;
-}
+    img {
+        object-fit: cover;
+        max-width: 300px;
+        max-height: 300px;
+    }
+    
+    .movie_info {
+        text-align: justify;
+        font-size: 1em;
+        .title {
+            font-weight: 600;
+        }
+        .year {
+            font-weight: 600;
+        }
+        .awards {
+            font-weight: 600;
+        }
+        .plot {
+            font-weight: 600;
+        }
+    }

@@ -1,9 +1,24 @@
 <h2>Featured movies</h2>
 
-<div *ngFor="let movie of movies">
-    <h3>Title: {{movie.Title}}</h3>
-    <div>Year: {{movie.Year}}</div>
-    <div>Awards: {{movie.Awards}}</div>
-    <div>{{movie.Plot}}</div>
+<div class="col-sm-4 col-md-4 " *ngFor="let movie of movies">
     <img src="assets\posters\{{movie.Poster}}">
+    <div class="movie_info">
+        <div>
+            <span class="title">Title: </span>
+            <span>{{movie.Title}}</span>
+        </div>
+        <div>
+            <span class="year">Year: </span>
+            <span>{{movie.Year}}</span>
+        </div>
+        <div>
+            <span class="awards">Awards: </span>
+            <span>{{movie.Awards}}</span>
+        </div>
+        <div>
+            <span class="plot">Plot: </span>
+            <span>{{movie.Plot}}</span>
+        </div>
+    </div>
+
 </div>

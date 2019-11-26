@@ -7,10 +7,9 @@
     <div>Found movies</div>
     <ul>
         <!-- laat maximaal twee resultaten zien -->
-        <li *ngFor="let movie of movies$ | async | slice:0:[maxResults_search]">
+        <li *ngFor="let movie of movies$ | async | slice:0:(maxResults_search)">
             <a routerLink="/searched-movies/{{movie.id}}">
-                {{movie.Title}}
-                {{maxResults_search}}
+                {{movie.Title}}               
             </a>
         </li>
     </ul>
