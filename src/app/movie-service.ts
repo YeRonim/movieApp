@@ -22,7 +22,7 @@ export class MovieService {
         //console.log("inladen url: ", this._url);
     }
 
-    getMovies():Observable<IMovie[]>{        
+    getMovies():Observable<IMovie[]>{          //Hier wordt de observable gedefinieerd. Hier kan je je op subscriben.
         return this.http.get<IMovie[]>(this._url);
     }
 

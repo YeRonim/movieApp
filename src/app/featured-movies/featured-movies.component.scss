@@ -6,7 +6,9 @@
     
     .movie_info {
         text-align: justify;
-        font-size: 1em;
+        font-size: 0.7em;
+        max-width: 200px;
+        margin-top: 20px;
         .title {
             font-weight: 600;
         }
