@@ -13,10 +13,10 @@
 // }
 
 export interface IMovie {
+    Type:string;
     Title:string;
     Year:number;
     imdbID:number;
-    Type:string;
     Poster:"string";
 
 }
