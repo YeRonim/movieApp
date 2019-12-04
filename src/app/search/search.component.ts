@@ -13,8 +13,8 @@ import {debounceTime, distinctUntilChanged, switchMap} from 'rxjs/operators';
 
 export class SearchComponent implements OnInit {
   movies$: Observable<IMovie[]>;
-  private searchTerms =  new Subject<string>();
-  private maxResults_search:number = 1;
+  public searchTerms =  new Subject<string>();
+  public maxResults_search:number = 1;
 
   constructor(private movieService:MovieService) { }
 

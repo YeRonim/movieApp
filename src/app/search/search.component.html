@@ -2,13 +2,14 @@
     <h4><label for="search-box">Search Movies</label></h4>
 
     <input autocomplete="off" type="search" id="search-box" #searchBox (input)="search(searchBox.value)" />
-    <button type="submit">Search</button>
+    <button type="submit" class="btn btn-primary">Search</button>
 
     <div>Found movies</div>
     <ul>
         <!-- laat maximaal twee resultaten zien -->
-        <li *ngFor="let movie of movies$ | async | slice:0:(maxResults_search)">
-            <a routerLink="/searched-movies/{{movie.id}}">
+        <!-- | slice:0:(maxResults_search) -->
+        <li *ngFor="let movie of movies$ | async ">
+            <a routerLink="/searched-movies/{{movie.imdbID}}">
                 {{movie.Title}}               
             </a>
         </li>

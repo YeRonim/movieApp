@@ -3,12 +3,14 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { IMovie } from './movie';
 import { Observable, of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
+import { environment } from '../environments/environment';
 
 
 
 @Injectable()
 export class MovieService {
-   private _url:string  = "api/movies";   
+   //private _url:string  = "api/movies";
+   private environment = environment;
    
    //JSON.stringify(MOVIES) ; //JSON.parse((/assets/data/movies.json)
     //movies: IMovie[] = MOVIES;
@@ -18,16 +20,16 @@ export class MovieService {
       };    
     
     constructor(private http: HttpClient){
-        console.log("constructor MovieService");
+        console.log("constructor MovieService", environment.baseUrl);
         //console.log("inladen url: ", this._url);
     }
 
     getMovies():Observable<IMovie[]>{          //Hier wordt de observable gedefinieerd. Hier kan je je op subscriben.
-        return this.http.get<IMovie[]>(this._url);
+        return this.http.get<IMovie[]>(environment.baseUrl);
     }
 
     getMovie(id: number): Observable<IMovie> {
-        const url = `${this._url}/${id}`;
+        const url = `${this.environment.baseUrl}/${id}`;
         return this.http.get<IMovie>(url).pipe(          
           catchError(this.handleError<IMovie>(`getMovie id=${id}`))
         );
@@ -35,9 +37,9 @@ export class MovieService {
 
     searchMovie(term:string): Observable<IMovie[]>{        
         console.log("movie-service.ts  term: ",term);       
-        console.log("test:", this.http.get<IMovie[]>(`${this._url}/?Title=${term}`).subscribe(response => console.log("response: ",response)));
+        console.log("test:", this.http.get<IMovie[]>(`${this.environment.baseUrl}/?s=${term}&apiKey=6c3a2d45`).subscribe(response => console.log("response: ",response)));
         //console.log(this.http.get<IMovie[]>(`${this._url}?Title=${term}`).subscribe(response => console.log("response: ",response)));
-
+        
         if(!term.trim()){
             //If not search term, return empty movie array
             return of([]);
@@ -47,7 +49,8 @@ export class MovieService {
             //console.log(`checkUrl: ${JSON.stringify(searchedMovies)}`)            
             
             //return searchedMovies ;
-            return this.http.get<IMovie[]>(`${this._url}/?Title=${term}`)            
+            //return this.http.get<IMovie[]>(`${this._url}/?Title=${term}`)    
+            return this.http.get<IMovie[]>(`${this.environment.baseUrl}/?s=${term}&apiKey=6c3a2d45`)   
         }             
     }
 

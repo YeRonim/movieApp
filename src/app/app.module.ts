@@ -9,7 +9,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { MovieService } from './movie-service';
 import { MovieDetailComponent } from './movie-detail/movie-detail.component';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
-import { DataService }  from './data.service';
+//import { DataService }  from './data.service';
 
 @NgModule({
   declarations: [
@@ -23,9 +23,9 @@ import { DataService }  from './data.service';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    HttpClientInMemoryWebApiModule.forRoot(
-      DataService, { dataEncapsulation: false }
-    )
+    // HttpClientInMemoryWebApiModule.forRoot(
+    //   DataService, { dataEncapsulation: false }
+    // )
   ],
   providers: [MovieService],
   bootstrap: [AppComponent]
