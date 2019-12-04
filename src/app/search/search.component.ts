@@ -21,14 +21,14 @@ export class SearchComponent implements OnInit {
   ngOnInit() {
     this.movies$ = this.searchTerms.pipe(
       //Wait 300ms after each keystroke before considering the term
-      debounceTime(300),
+      debounceTime(700),
 
       // ignore new term if same as previous term
       distinctUntilChanged(),
 
       // switch to new search observable each time the term changes
-      switchMap((term: string) => this.movieService.searchMovie(term)),
-    );    
+      switchMap((term: string) => this.movieService.searchMovie(term)),      
+    );      
   }
 
   //Push a search term into the observable stream.
@@ -36,15 +36,5 @@ export class SearchComponent implements OnInit {
     console.log("in search.component - search(term)", term);
     this.searchTerms.next(term);
   }
-
   
-
-  
-
-  
-  
-
-
-
-
 }
