@@ -1,16 +1,5 @@
-// export interface IMovie {
-//     Type:string;
-//     Title:string;
-//     Year:number;
-//     imdbID:number;
-//     Poster:"string";
-
-// }
-
-//http://www.omdbapi.com/?s=bri&apiKey=6c3a2d45
-
-
 export interface IMovie {
+    id:number;
     Title:string;
     Year:number;
     Rated:number;
@@ -34,5 +23,14 @@ export interface IMovie {
     DVD:string;
     BoxOffice:string;
     Production:string;
-    Website:string;    
+    Website:string;
+
+
+
+
+
+    
+     
+    
+    
 }

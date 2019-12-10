@@ -14,7 +14,7 @@ import {debounceTime, distinctUntilChanged, switchMap} from 'rxjs/operators';
 export class SearchComponent implements OnInit {
   movies$: Observable<IMovie[]>;
   public searchTerms =  new Subject<string>();
-  public maxResults_search:number = 1;
+  public maxResults_search:number = 3;  //use slice in template
 
   constructor(private movieService:MovieService) { }
 

@@ -4,7 +4,6 @@ import { AppComponent } from './app.component';
 import { SearchComponent } from './search/search.component';
 import { FeaturedMoviesComponent } from './featured-movies/featured-movies.component';
 import { AppRoutingModule } from './app-routing.module';
-import { SearchedMovieComponent } from './searched-movie/searched-movie.component';
 import { HttpClientModule } from '@angular/common/http';
 import { MovieService } from './movie-service';
 import { MovieDetailComponent } from './movie-detail/movie-detail.component';
@@ -15,8 +14,7 @@ import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
   declarations: [
     AppComponent,
     SearchComponent,
-    FeaturedMoviesComponent,
-    SearchedMovieComponent,
+    FeaturedMoviesComponent,   
     MovieDetailComponent
   ],
   imports: [

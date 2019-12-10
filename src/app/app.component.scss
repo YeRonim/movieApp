@@ -1,9 +1,15 @@
     @import "./variables";
-    nav a {
-        margin-left: 15px;
-        font-size: 22px;
-        font-style: strong;
-        color: $font-color;
+    nav {
+        a {
+            position: relative;
+            margin-left: 15px;
+            font-size: 1em;
+            font-style: strong;
+            color: $font-color;
+            text-decoration: none;
+            padding: 10px 10px;
+            line-height: 50px;
+        }
     }
     
     .title {
@@ -13,4 +19,8 @@
     .navigation-bar {
         margin-left: 30px;
         margin-right: 30px;
+    }
+    
+    .navbar-default .navbar-brand {
+        color: red;
     }

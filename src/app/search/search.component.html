@@ -11,18 +11,10 @@
                 <!-- laat maximaal twee resultaten zien -->
                 <!-- | slice:0:(maxResults_search) -->
 
-
-                <h2>{{movie.Title}} </h2>
-                <img src={{movie.Poster}}>
-                <h5>type: {{movie.Type}}</h5>
-                <h5>year: {{movie.Year}}</h5>
-                <!-- <h5>rated: {{movie.Rated}}</h5>
-                        <h5>genre: {{movie.Genre}}</h5>
-                        <h5>director: {{movie.Director}}</h5>
-                        <h5>actors: {{movie.Actors}}</h5>
-                        <h5>plot: {{movie.Plot}}</h5>
-                        <h5>awards: {{movie.Awards}}</h5> 
-                    -->
+                <a routerLink="/detail-movie/{{movie.imdbID}}">
+                    <h2>{{movie.Title}} </h2>
+                    <img src={{movie.Poster}}>
+                </a>
 
             </div>
         </div>

@@ -4,6 +4,7 @@ import { IMovie } from './movie';
 import { Observable, of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 import { environment } from '../environments/environment';
+import { ActivatedRoute } from '@angular/router';
 
 
 
@@ -24,16 +25,12 @@ export class MovieService {
       //console.log("inladen url: ", this._url);
     }
 
-    getMovies():Observable<IMovie[]>{          //Hier wordt de observable gedefinieerd. Hier kan je je op subscriben.
-      return this.http.get<IMovie[]>(environment.baseUrl);
-    }
 
-    getMovie(id: number): Observable<IMovie> {
-      const url = `${this.environment.baseUrl}/${id}`;
-      return this.http.get<IMovie>(url).pipe(          
-        catchError(this.handleError<IMovie>(`getMovie id=${id}`))
-      );
+    getMovie(id:string): Observable<IMovie>{   
+      const url = `${this.environment.baseUrl}/?i=${id}&apikey=6c3a2d45`;
+      return this.http.get<IMovie>(url);
     }
+  
 
     searchMovie(term:string): Observable<IMovie[]>{        
       console.log("movie-service.ts  term: ",term);       

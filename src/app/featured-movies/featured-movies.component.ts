@@ -15,14 +15,14 @@ export class FeaturedMoviesComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.getMovies();   
+    //this.getMovies();   
   } 
 
   
-  getMovies(): void {
-    this.movieService.getMovies()
-      .subscribe(movies => this.movies = movies);   //.slice(0,2); //Top 2 movies laten zien -> of in movie-servie |slice:0:2
-  }
+  // getMovies(): void {
+  //   this.movieService.getMovies()
+  //     .subscribe(movies => this.movies = movies);   //.slice(0,2); //Top 2 movies laten zien -> of in movie-servie |slice:0:2
+  // }
 
 
   
