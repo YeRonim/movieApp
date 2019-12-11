@@ -10,19 +10,28 @@ import { IMovie } from '../movie';
 })
 
 export class FeaturedMoviesComponent implements OnInit {  
-  movies: IMovie[];
-  constructor(private movieService: MovieService) {    
-  }
+  movie: IMovie; 
+  featuredMovies:Array<IMovie>=[];
+  featuredMoviesId:Array<string> = ["tt0083866", "tt0319061"];
+
+  constructor(
+      private movieService: MovieService,
+  ) { }
 
   ngOnInit() {
-    //this.getMovies();   
-  } 
+    this.getFeaturedMovies()
+  }
 
-  
-  // getMovies(): void {
-  //   this.movieService.getMovies()
-  //     .subscribe(movies => this.movies = movies);   //.slice(0,2); //Top 2 movies laten zien -> of in movie-servie |slice:0:2
-  // }
+  getFeaturedMovies(): void {   
+    for(let i=0; i<this.featuredMoviesId.length; i++){
+
+      this.movieService.getMovie(this.featuredMoviesId[i])
+      .subscribe(movie => {
+        console.log("movie: ", movie);
+        this.featuredMovies.push(movie);        
+      });
+    }    
+  }
 
 
   

@@ -1,24 +1,26 @@
 <h2>Featured movies</h2>
 
-<div class="col-sm-4 col-md-4 " *ngFor="let movie of movies">
-    <img src="assets\posters\{{movie.Poster}}">
+<!-- <div *ngIf="movie">
+    <img src={{movie.Poster}}>
     <div class="movie_info">
-        <div>
-            <span class="title">Title: </span>
-            <span>{{movie.Title}}</span>
-        </div>
-        <div>
-            <span class="year">Year: </span>
-            <span>{{movie.Year}}</span>
-        </div>
-        <div>
-            <span class="awards">Awards: </span>
-            <span>{{movie.Awards}}</span>
-        </div>
-        <div>
-            <span class="plot">Plot: </span>
-            <span>{{movie.Plot}}</span>
-        </div>
+        <h2>{{movie.Title}} </h2>
+        <h5>Type: {{movie.Type}}</h5>
+        <h5>Year: {{movie.Year}}</h5>
+        <h5>Rated: {{movie.Rated}}</h5>
+        <h5>Genre: {{movie.Genre}}</h5>
+        <h5>Director: {{movie.Director}}</h5>
+        <h5>Actors: {{movie.Actors}}</h5>
+        <h5>Plot: {{movie.Plot}}</h5>
+        <h5>Awards: {{movie.Awards}}</h5>
     </div>
+</div> -->
+
+<div *ngFor="let movie of featuredMovies" class="col-md-4 col-sm-6 col-6">
+
+
+    <a routerLink="/detail-movie/{{movie.imdbID}}">
+        <h2>MovieTitle: {{movie.Title}} </h2>
+        <img src={{movie.Poster}}>
+    </a>
 
 </div>
