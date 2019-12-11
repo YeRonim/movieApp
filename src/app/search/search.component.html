@@ -5,14 +5,14 @@
     <button type="submit" class="btn btn-primary">Search</button>
 
     <div>Found movies</div>
-    <div class="container">
+    <div class="container movies-presented">
         <div class="row">
-            <div *ngFor="let movie of movies$ | async" class="col-md-4 col-sm-6 col-12">
+            <div *ngFor="let movie of movies$ | async">
                 <!-- laat maximaal twee resultaten zien -->
                 <!-- | slice:0:(maxResults_search) -->
 
                 <a routerLink="/detail-movie/{{movie.imdbID}}">
-                    <h2>{{movie.Title}} </h2>
+                    <h2 class="title">{{movie.Title}} </h2>
                     <img src={{movie.Poster}}>
                 </a>
 

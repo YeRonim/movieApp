@@ -1,8 +1,8 @@
-<div *ngIf="movie">
+<div *ngIf="movie" class="movie-container">
 
     <img src={{movie.Poster}}>
     <div class="movie_info">
-        <h2>{{movie.Title}} </h2>
+        <h2 class="title">{{movie.Title}} </h2>
         <h5>Type: {{movie.Type}}</h5>
         <h5>Year: {{movie.Year}}</h5>
         <h5>Rated: {{movie.Rated}}</h5>

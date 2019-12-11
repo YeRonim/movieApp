@@ -1,26 +1,10 @@
-<h2>Featured movies</h2>
+<div class="row">
+    <div *ngFor="let movie of featuredMovies" class="col-md-4 col-sm-6 col-12 movie_info">
 
-<!-- <div *ngIf="movie">
-    <img src={{movie.Poster}}>
-    <div class="movie_info">
-        <h2>{{movie.Title}} </h2>
-        <h5>Type: {{movie.Type}}</h5>
-        <h5>Year: {{movie.Year}}</h5>
-        <h5>Rated: {{movie.Rated}}</h5>
-        <h5>Genre: {{movie.Genre}}</h5>
-        <h5>Director: {{movie.Director}}</h5>
-        <h5>Actors: {{movie.Actors}}</h5>
-        <h5>Plot: {{movie.Plot}}</h5>
-        <h5>Awards: {{movie.Awards}}</h5>
+        <a routerLink="/detail-movie/{{movie.imdbID}} ">
+            <h2>{{movie.Title}} </h2>
+            <img src={{movie.Poster}}>
+        </a>
+
     </div>
-</div> -->
-
-<div *ngFor="let movie of featuredMovies" class="col-md-4 col-sm-6 col-6">
-
-
-    <a routerLink="/detail-movie/{{movie.imdbID}}">
-        <h2>MovieTitle: {{movie.Title}} </h2>
-        <img src={{movie.Poster}}>
-    </a>
-
 </div>
