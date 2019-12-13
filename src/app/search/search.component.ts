@@ -13,12 +13,16 @@ import {debounceTime, distinctUntilChanged, switchMap} from 'rxjs/operators';
 
 export class SearchComponent implements OnInit {
   movies$: Observable<IMovie[]>;
+  show: boolean = false;
   public searchTerms =  new Subject<string>();
   public maxResults_search:number = 3;  //use slice in template
+ 
 
   constructor(private movieService:MovieService) { }
+  
 
   ngOnInit() {
+    
     this.movies$ = this.searchTerms.pipe(
       //Wait 300ms after each keystroke before considering the term
       debounceTime(700),
@@ -36,5 +40,11 @@ export class SearchComponent implements OnInit {
     console.log("in search.component - search(term)", term);
     this.searchTerms.next(term);
   }
+
+  // setPresentMovies(){
+  //   this.settingPresentMovies = !this.settingPresentMovies;
+  //   console.log("settingPresentMovies:", this.settingPresentMovies)
+    
+  // }
   
 }

@@ -3,11 +3,27 @@ input {
 }
 
 .movies-presented {
-    .title {
-        // margin: auto;
-        color: red;
-        font-size: 4rem;
-        height: 20px;
-        //display: block;
+    div.title {
+        height: 40px;
+        line-height: 40px;
+        background-color: white;
+        max-width: 200px;
+        padding: -5px;
+        div {
+            display: inline-block;
+            vertical-align: bottom;
+            line-height: 1em;
+            font-size: 1em;
+            color: black;
+            // display: inline-block;
+            // font-size: 1em;
+            // line-height: 0.8em;
+            // vertical-align: bottom;
+            // max-width: 300px;
+        }
+    }
+    img {
+        margin-bottom: 20px;
+        max-width: 200px;
     }
 }

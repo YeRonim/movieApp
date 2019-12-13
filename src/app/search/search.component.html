@@ -1,23 +1,30 @@
 <div>
     <h4><label for="search-box">Search Movies</label></h4>
 
-    <input autocomplete="off" type="search" id="search-box" #searchBox (input)="search(searchBox.value)" />
-    <button type="submit" class="btn btn-primary">Search</button>
+    <input autocomplete="off" type="search" id="search-box" #searchBox />
+    <button (click)="show=!show; search(searchBox.value)" type="submit" class="btn btn-primary ">Search</button>
 
-    <div>Found movies</div>
-    <div class="container movies-presented">
-        <div class="row">
-            <div *ngFor="let movie of movies$ | async">
-                <!-- laat maximaal twee resultaten zien -->
-                <!-- | slice:0:(maxResults_search) -->
+    <!-- (input)="search(searchBox.value)" -->
+    <div>
+        <div *ngIf="show ">Found movies</div>
+        <div class="container movies-presented ">
+            <div class="row ">
 
-                <a routerLink="/detail-movie/{{movie.imdbID}}">
-                    <h2 class="title">{{movie.Title}} </h2>
-                    <img src={{movie.Poster}}>
-                </a>
+                <div *ngFor="let movie of movies$ | async " class="col-md-3 col-sm-4 col-12 ">
+                    <!-- laat maximaal twee resultaten zien -->
+                    <!-- | slice:0:(maxResults_search) -->
+
+                    <a routerLink="/detail-movie/{{movie.imdbID}} ">
+                        <div class="title ">
+                            <div>{{movie.Title}} </div>
+                        </div>
+
+                        <img src={{movie.Poster}}>
+                    </a>
+
+                </div>
 
             </div>
         </div>
     </div>
-
 </div>
