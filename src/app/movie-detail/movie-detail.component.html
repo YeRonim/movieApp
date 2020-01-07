@@ -1,15 +1,22 @@
-<div *ngIf="movie" class="movie-container">
-
+<div *ngIf="movieLoaded" class="movie-container">
     <img src={{movie.Poster}}>
-    <div class="movie_info">
-        <h2 class="title">{{movie.Title}} </h2>
-        <h5>Type: {{movie.Type}}</h5>
-        <h5>Year: {{movie.Year}}</h5>
-        <h5>Rated: {{movie.Rated}}</h5>
-        <h5>Genre: {{movie.Genre}}</h5>
-        <h5>Director: {{movie.Director}}</h5>
-        <h5>Actors: {{movie.Actors}}</h5>
+    <h2 class="title">{{movie.Title}} </h2>
+    <h5>Type: {{movie.Type}}</h5>
+    <h5>Year: {{movie.Year}}</h5>
+    <h5>Rated: {{movie.Rated}}</h5>
+    <h5>Genre: {{movie.Genre}}</h5>
+    <h5>Director: {{movie.Director}}</h5>
+    <h5>Actors: {{movie.Actors}}</h5>
+
+    <div *ngIf="plotShort==false">
         <h5>Plot: {{movie.Plot}}</h5>
-        <h5>Awards: {{movie.Awards}}</h5>
+        <button id="btn-MoreLess" (click)="moreLess()">LESS</button>
+    </div>
+
+    <div *ngIf="plotShort==true">
+        <h5>Plot: {{plotContent}}
+            <span class="dots">...</span>
+        </h5>
+        <button id="btn-MoreLess" (click)="moreLess()">MORE</button>
     </div>
 </div>

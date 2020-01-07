@@ -13,6 +13,7 @@ export class MovieService {
    //private _url:string  = "api/movies";
    private environment = environment;
    
+   
    //JSON.stringify(MOVIES) ; //JSON.parse((/assets/data/movies.json)
     //movies: IMovie[] = MOVIES;
 
@@ -50,9 +51,7 @@ export class MovieService {
         //return this.http.get<IMovie[]>(`${this._url}/?Title=${term}`)    
         return this.http.get<IMovie[]>(`${this.environment.baseUrl}/?s=${term}&apiKey=6c3a2d45`).pipe(
           map(data => {
-
-            return data["Search"]
-
+            return data["Search"];
           })
         )
       }             

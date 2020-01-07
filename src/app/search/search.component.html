@@ -2,26 +2,25 @@
     <h4><label for="search-box">Search Movies</label></h4>
 
     <input autocomplete="off" type="search" id="search-box" #searchBox />
-    <button (click)="show=!show; search(searchBox.value)" type="submit" class="btn btn-primary ">Search</button>
+    <button (click)="search(searchBox.value)" type="submit" class="btn btn-primary ">Search</button>
 
     <!-- (input)="search(searchBox.value)" -->
     <div>
-        <div *ngIf="show ">Found movies</div>
-        <div class="container movies-presented ">
-            <div class="row ">
+        <div *ngIf="(movies$ | async)?.length > 0">Found movies</div>
+        <!-- <div *ngIf="movies$.length === 0 ">No movies found</div> -->
 
+        <div class="container movies-presented">
+            <div class="row ">
                 <div *ngFor="let movie of movies$ | async " class="col-md-3 col-sm-4 col-12 ">
                     <!-- laat maximaal twee resultaten zien -->
                     <!-- | slice:0:(maxResults_search) -->
-
-                    <a routerLink="/detail-movie/{{movie.imdbID}} ">
+                    <a routerLink="/detail-movie/{{movie.imdbID}}">
                         <div class="title ">
                             <div>{{movie.Title}} </div>
                         </div>
 
                         <img src={{movie.Poster}}>
                     </a>
-
                 </div>
 
             </div>
