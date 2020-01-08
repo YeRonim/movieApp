@@ -1,5 +1,34 @@
+h5 {
+    display: inline-block;
+}
+
 button {
+    display: inline-block;
     color: black;
-    font-weight: 900;
-    font-size: small;
+    font-weight: 600;
+    font-size: 0.9rem;
+    &.more {
+        margin-left: 15px;
+    }
+    &.less {
+        display: block;
+        clear: left;
+        margin-left: 0px;
+    }
+}
+
+.title {
+    font-weight: 700;
+}
+
+.title-plot {
+    // display: inline-block;
+    margin-right: 5px;
+    float: left;
+}
+
+div.plot-content {
+    overflow: hidden;
+    float: left;
+    width: 300px;
 }

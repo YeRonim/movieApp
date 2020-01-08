@@ -1,7 +1,8 @@
-import { Component, OnInit, ViewChild, ElementRef, AfterContentChecked, DoCheck} from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, AfterContentChecked, DoCheck, } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { MovieService }  from '../movie-service';
 import { IMovie } from '../movie';
+import { Subscription } from 'rxjs'
  
 
 @Component({
@@ -10,7 +11,7 @@ import { IMovie } from '../movie';
   styleUrls: ['./movie-detail.component.scss']
 })
 
-export class MovieDetailComponent implements OnInit{
+export class MovieDetailComponent implements OnInit {
   movie:IMovie; 
   plotShort:boolean;
   plotContent:string;
@@ -20,6 +21,7 @@ export class MovieDetailComponent implements OnInit{
 
   public person:string;
   movieShort:string;
+  movieSubscription:Subscription;
  
   constructor(
     private route: ActivatedRoute,
@@ -37,11 +39,11 @@ export class MovieDetailComponent implements OnInit{
     this.movieService.getMovie(id).subscribe(movie => 
     {
         this.movie = movie;  
-        console.log("this.movie.Plot in getMovie: ", this.movie.Plot);    
-        this.movieLoaded = Promise.resolve(true); 
+        console.log("this.movie.Plot in getMovie: ", this.movie.Plot);         
         console.log("movieLoaded", this.movieLoaded);   
         this.plotShortLength(); 
-    });      
+    });
+
   }  
 
   plotShortLength(){
@@ -52,18 +54,17 @@ export class MovieDetailComponent implements OnInit{
     if(this.movie.Plot.length > 50){
       console.log("in movie.Plot.length>50")
       this.plotShort = true;
-      let plotShortContent = this.movie.Plot.substring(0,15);
+      let plotShortContent = this.movie.Plot.substring(0,50);
       this.plotContent = plotShortContent;      
     }      
 
     if(this.movie.Plot.length < 50){
       console.log("in movie.Plot.length<50")
       this.plotShort = false;
-      let plotShortContent = this.movie.Plot
+      let plotShortContent = this.movie.Plot;
       this.plotContent = plotShortContent; 
     }    
-    console.log("plotContent: ", this.plotContent);
-   
+    console.log("plotContent: ", this.plotContent);   
 
   }
 
@@ -71,6 +72,10 @@ export class MovieDetailComponent implements OnInit{
     console.log("In moreLess")
     this.plotShort = !this.plotShort;
     console.log("this.plotShort", this.plotShort);    
+  }
+
+  ngOnDestroy(){
+    //this.movieSubscription.unsubscribe();
   }
 
 }

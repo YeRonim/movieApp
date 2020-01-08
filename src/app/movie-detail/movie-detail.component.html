@@ -1,6 +1,6 @@
-<div *ngIf="movieLoaded" class="movie-container">
+<div *ngIf="movie" class="movie-container">
     <img src={{movie.Poster}}>
-    <h2 class="title">{{movie.Title}} </h2>
+    <h4 class="title">{{movie.Title}} </h4>
     <h5>Type: {{movie.Type}}</h5>
     <h5>Year: {{movie.Year}}</h5>
     <h5>Rated: {{movie.Rated}}</h5>
@@ -8,15 +8,21 @@
     <h5>Director: {{movie.Director}}</h5>
     <h5>Actors: {{movie.Actors}}</h5>
 
+
     <div *ngIf="plotShort==false">
-        <h5>Plot: {{movie.Plot}}</h5>
-        <button id="btn-MoreLess" (click)="moreLess()">LESS</button>
+        <h5 class="title-plot">Plot: </h5>
+        <div class="plot-content">
+            <h5>{{movie.Plot}}</h5>
+            <button class="btn btn-warning less" id="btn-MoreLess" (click)="moreLess()">LESS</button>
+        </div>
+
     </div>
 
     <div *ngIf="plotShort==true">
-        <h5>Plot: {{plotContent}}
-            <span class="dots">...</span>
-        </h5>
-        <button id="btn-MoreLess" (click)="moreLess()">MORE</button>
+        <h5 class="title-plot">Plot: </h5>
+        <h5 class="plot-content">{{plotContent}}</h5>
+        <span class="dots">...</span>
+
+        <button class="btn btn-warning more" id="btn-MoreLess" (click)="moreLess()">MORE</button>
     </div>
 </div>
